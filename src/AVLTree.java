@@ -27,12 +27,10 @@ public class AVLTree {
     }
 
     // Método público que se utiliza para la operación de Insertar un elemento
-    public void insert(Node newNode, int newKey, Persona personData){
+    public void insert(Node newNode){
         if(search(newNode.navigationKey)){
             System.out.println("\nLa persona con el codigo " + newNode.navigationKey + " ya existe, por favor ingrese otra");
         } else {
-            newNode.navigationKey = newKey;
-            newNode.data = personData;
             root = insertHelper(root, newNode);
             System.out.println("\nElemento " + newNode.navigationKey + " insertado en el arbol");
         }
@@ -68,7 +66,7 @@ public class AVLTree {
             JFrame frame = new JFrame("Visualizacion del Arbol Actual");
             TreeVisualizer panel = new TreeVisualizer(this);  // Pass 'this' to TreeVisualizer
             frame.add(panel);
-            frame.setSize(800, 600);
+            frame.setSize(1280, 720);
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.setVisible(true);
         }
@@ -78,7 +76,7 @@ public class AVLTree {
         // pantalla.
         if(root != null){
             displayHelper(root.left);
-            System.out.println(root.data);
+            System.out.println(root.navigationKey);
             displayHelper(root.right);
         }
     }
@@ -117,11 +115,11 @@ public class AVLTree {
         // Caso base
         if(root == null){
             return root;
-        } else if(data < root.data){
+        } else if(data < root.navigationKey){
             // Utilizamos esto para recorrer recursivamente el arbol
             // hasta encontrar el nodo
             root.left = removeHelper(root.left, data);
-        } else if(data > root.data){
+        } else if(data > root.navigationKey){
             root.right = removeHelper(root.right, data);
         } else {
             // Se encontró el nodo
@@ -131,12 +129,12 @@ public class AVLTree {
             } else if(root.right != null){
                 // Existe un hijo derecho, por tanto encontramos un sucesor
                 // para reemplazar el nodo.
-                root.data = successor(root);
-                root.right = removeHelper(root.right, root.data);
+                root.navigationKey = successor(root);
+                root.right = removeHelper(root.right, root.navigationKey);
             } else {
                 // Si no existe hijo derecho buscamos un predecesor
-                root.data = predecessor(root);
-                root.left = removeHelper(root.left, root.data);
+                root.navigationKey = predecessor(root);
+                root.left = removeHelper(root.left, root.navigationKey);
             }
         }
 
@@ -151,7 +149,7 @@ public class AVLTree {
         while(root.left != null){
             root = root.left;
         }
-        return root.data;
+        return root.navigationKey;
     }
 
     // Se buscara el mayor valor por debajo del hijo izquierdo
@@ -161,7 +159,7 @@ public class AVLTree {
         while(root.right != null){
             root = root.right;
         }
-        return root.data;
+        return root.navigationKey;
     }
 
     public void findMinimum() {     

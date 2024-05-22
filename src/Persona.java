@@ -17,7 +17,7 @@ class Persona {
 
     public static Persona ingresarPersona(Scanner scanner) {
 
-        System.out.println("Ingrese su DNI:");
+        System.out.println("\nIngrese su DNI:");
         String dni = scanner.nextLine();
 
         System.out.println("Ingrese su nombre:");

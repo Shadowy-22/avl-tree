@@ -26,14 +26,14 @@ public class Main {
                 scanner.nextLine(); // Limpiar el buffer de entrada
             }
         }
-
+        scanner.nextLine();
         return entero;
     }
 
     public static void main(String[] args) {
 
         AVLTree tree = new AVLTree();
-        int navigationKey;
+        int navigationKey, data;
         Persona persona;
         int choice = 0;
 
@@ -41,9 +41,9 @@ public class Main {
 
         while (choice!= 7) {
             System.out.println("\nMenu:");
-            System.out.println("1. Insertar Nodo");
+            System.out.println("1. Insertar Nueva Persona");
             System.out.println("2. Mostrar Arbol (Recorrido Inorden Ascendente)");
-            System.out.println("3. Borrar Nodo");
+            System.out.println("3. Borrar Persona");
             System.out.println("4. Encontrar Minimo");
             System.out.println("5. Encontrar Maximo");
             System.out.println("6. Buscar en el arbol");
@@ -59,18 +59,19 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    System.out.print("Ingrese el dato para el nodo: ");
-                    persona = persona.ingresarPersona(scanner);
+                    System.out.println("Ingrese la Clave de la nueva Persona");
                     navigationKey = obtenerEntero();
+                    System.out.println("A continuación ingrese los datos de la Persona: ");
+                    persona = Persona.ingresarPersona(scanner);
                     tree.insert(new Node(navigationKey, persona));
                     break;
                 case 2:
                     tree.display();
                     break;
                 case 3:
-                    System.out.print("Ingrese el dato a eliminar del arbol: ");
-                    // data = obtenerEntero();
-                    // tree.remove(data);
+                    System.out.print("Ingrese la Clave de la Persona a eliminar: ");
+                    data = obtenerEntero();
+                    tree.remove(data);
                     break;
                 case 4:
                     tree.findMinimum();
@@ -79,12 +80,12 @@ public class Main {
                     tree.findMaximum();
                     break;
                 case 6:
-                    System.out.print("Ingrese el dato que quiere buscar si existe en el arbol: ");
+                    System.out.print("Ingrese la Clave de la Persona que quiere buscar: ");
                     data = obtenerEntero();
                     if(tree.search(data)){
-                        System.out.println("El elemento " + data + " EXISTE en el arbol");
+                        System.out.println("La persona con la Clave " + data + " EXISTE en el arbol");
                     } else {
-                        System.out.println("El elemento " + data + " NO EXISTE en el arbol");
+                        System.out.println("La persona con la Clave " + data + " NO EXISTE en el arbol");
                     };
                     break;
                 case 7:
