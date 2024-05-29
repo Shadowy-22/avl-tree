@@ -81,7 +81,6 @@ public class Main {
             System.out.println("5. Encontrar Maximo");
             System.out.println("6. Buscar en el arbol");
             System.out.println("7. Salir");
-            System.out.println("0. Insertar datos de prueba");
             System.out.print("Ingrese su eleccion: ");
             choice = obtenerEntero();
 
@@ -131,8 +130,6 @@ public class Main {
                 case 7:
                     System.out.println("Saliendo...");
                     break;
-                case 99:
-
                 default:
                     System.out.println("Error.");
             }
