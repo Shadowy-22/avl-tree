@@ -34,4 +34,13 @@ class Persona {
 
         return new Persona(dni, nombre, apellido, direccion, telefono);
     }
+
+    @Override
+    public String toString() {
+        return "\tDNI: " + dni + "\n" +
+               "\tNombre: " + nombre + "\n" +
+               "\tApellido: " + apellido + "\n" +
+               "\tDirección: " + direccion + "\n" +
+               "\tTeléfono: " + telefono;
+    }
 }
