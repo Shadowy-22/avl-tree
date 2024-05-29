@@ -35,4 +35,4 @@ Each tree node will contain a data structure of a person associated with the nav
 
 ### Additional Notes
 
-- 
+- Ensure that all operations maintain the balance of the AVL tree.
