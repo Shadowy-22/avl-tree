@@ -69,7 +69,7 @@ public class Main {
         Persona persona;
         int choice = 0;
 
-        System.out.println("PROGRAMA ARBOL BINARIO DE BUSQUEDA");
+        System.out.println("PROGRAMA ARBOL AVL");
 
         while (choice!= 7) {
             System.out.println("\nMenu:");
